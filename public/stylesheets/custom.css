@@ -1,0 +1,15 @@
+#video_div {
+  position: relative;
+  width: 300px;
+  height: 300px;
+}
+
+#video_div img{
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 300px;
+}
+
+div.embed { display: none;}
+
