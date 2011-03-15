@@ -4,12 +4,15 @@
 $(document).ready(function() {
 	
 	$('a.oembed').embedly({maxWidth:300,'method':'replace'}).bind('embedly-oembed', function(e, oembed){ 
-		$("#video_div").prepend($("<img>", { src: oembed.thumbnail_url, width:200 }));
+		$(this).parent().append($("<img>", { src: oembed.thumbnail_url, width:200 }));
+		url = $(this).attr('data-show-url');
+		$(this).parent().prepend('<p><a href="' + url + '">' + oembed.title + '</a></p>')
+		$(this).parent().prepend('<hr noshade>');
 	});
-	
+
 	$("#video_div img").live('click', function() {
 	   $(this).toggle();	
-	   $("div.embed").toggle();
+	   $(this).parent().children('.embed').toggle();
 	});
 	
 	
