@@ -8,6 +8,12 @@ $(document).ready(function() {
 		url = $(this).attr('data-show-url');
 		$(this).parent().prepend('<p><a href="' + url + '">' + oembed.title + '</a></p>')
 		$(this).parent().prepend('<hr noshade>');
+		
+		$.ajax({
+		   type: "POST",
+		   url: "/videos",
+		   data: { title: oembed.title }
+		});
 	});
 
 	$("#video_div img").live('click', function() {
