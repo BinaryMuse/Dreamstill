@@ -3,18 +3,19 @@
 
 $(document).ready(function() {
 	
-	$('a.oembed').embedly({maxWidth:300,'method':'replace'}).bind('embedly-oembed', function(e, oembed){ 
-		$(this).parent().append($("<img>", { src: oembed.thumbnail_url, width:200 }));
-		url = $(this).attr('data-show-url');
-		$(this).parent().prepend('<p><a href="' + url + '">' + oembed.title + '</a></p>')
-		$(this).parent().prepend('<hr noshade>');
-		
-		$.ajax({
-		   type: "POST",
-		   url: "/videos",
-		   data: { title: oembed.title }
+	$("#new_video").bind('submit', function(e){
+			var q = $(this).find('#video_video_url').val();
+			 console.log(q)
+			if (q == '')
+				return false;
+
+			$.embedly(q, {maxWidth: 500, wrapElement: 'div' }, function(oembed, dict){
+				if (oembed == null)
+					$(this).parent().prepend('<p class="text"> Not A Valid URL </p>');
+				else 
+					$(this).parent().prepend(oembed.code);
+			})
 		});
-	});
 
 	$("#video_div img").live('click', function() {
 	   $(this).toggle();	
