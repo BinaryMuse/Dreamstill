@@ -1,3 +1,5 @@
+div.video > a.oembed { visibility:hidden; }
+
 div.embed { display: none;}
 
 #mask {

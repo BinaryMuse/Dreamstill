@@ -1,6 +1,7 @@
 Dreamstill::Application.routes.draw do
   root :to => "videos#new"
   resources :videos
+  resources :video_votes
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

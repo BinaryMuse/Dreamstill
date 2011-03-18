@@ -1,0 +1,1 @@
+$('#video_<%= @video.id %> #vote_display').html("<p id='votes'><%= escape_javascript pluralize @video.vote_sum, 'Votes' %></p>")

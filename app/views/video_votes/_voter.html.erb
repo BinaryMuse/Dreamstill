@@ -1,0 +1,5 @@
+<%= button_to "+1", video_votes_path(@video, :type=> "up"), :remote => true %>
+<div id='votes_div'>
+<p id='votes'><%= pluralize @video.vote_sum, 'Votes' %></p>
+</div>
+<%= button_to "-1", video_votes_path(@video, :type=> "down"), :remote => true %>

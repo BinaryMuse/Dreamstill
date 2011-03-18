@@ -1,4 +1,16 @@
 <%= div_for video do %>
 
+<div id='voting_div'>
+  <%= button_to "+1", video_votes_path( :video_id => video.id, :type => "up" ), :remote => true %>
+  <div id='vote_display'>
+    <p id='votes'><%= pluralize video.vote_sum, 'Votes' %></p>
+  </div>
+  <%= button_to "-1", video_votes_path( :video_id => video.id, :type => "down" ), :remote => true %>
+</div>
+
+<%= link_to video.title, video_path(video) %> <br /><br />
+
+<%= link_to 'video', video.video_url, :class => 'oembed' %>
+
 <% end %>
 

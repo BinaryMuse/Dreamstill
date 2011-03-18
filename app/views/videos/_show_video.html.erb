@@ -1,5 +1,7 @@
 <%= div_for video do %>
 
-<%= link_to 'video', video.video_url, :class => 'oembed', 'data-show-url' => video_path(video) %>
+<p><%= video.title %></p>
+
+<%= link_to 'video', video.video_url, :class => 'oembed' %>
 
 <% end %>
