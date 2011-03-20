@@ -3,7 +3,7 @@
 <div id='voting_div'>
   <%= button_to "+1", video_votes_path( :video_id => video.id, :type => "up" ), :remote => true %>
   <div id='vote_display'>
-    <p id='votes'><%= pluralize video.vote_sum, 'Votes' %></p>
+    <p id='votes'><%= pluralize video.vote_sum, 'Vote' %></p>
   </div>
   <%= button_to "-1", video_votes_path( :video_id => video.id, :type => "down" ), :remote => true %>
 </div>
